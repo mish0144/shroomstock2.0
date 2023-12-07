@@ -1,4 +1,45 @@
 .bands {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bands img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.band {
+  display: grid;
+  max-width: 300px;
+  justify-items: center;
+  align-items: end;
+}
+
+.band h2,
+.band img {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.band h2 {
+  font-size: 40px;
+  text-align: center;
+  color: #fff4e7;
+  -webkit-text-stroke: 1px black;
+  font-family: "Spicy Rice", serif;
+  z-index: 99;
+}
+
+.time {
+  display: flex;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
 }
