@@ -8,7 +8,7 @@ function Index() {
     <main>
       <h1 className="program_h1">Program</h1>
       <section className="scene_colors">
-        <div class="tooltip">
+        <div className="tooltip">
           <span className="tooltiptext">Earch color represents a scene. Check for scene color in the band photos top left corner.</span>
           <img className="scene_color" src={pinkScene} alt="scene colors" />
         </div>
