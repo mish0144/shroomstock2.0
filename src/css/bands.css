@@ -52,6 +52,7 @@ main {
 
 .time {
   display: flex;
+  align-items: center;
   font-family: "Poppins", sans-serif;
   justify-content: space-between;
 }
@@ -62,14 +63,30 @@ main {
   font-size: 15px;
   font-family: "Poppins", sans-serif;
   border-radius: 10px;
-  width: 70px;
+  width: 90px;
   height: 35px;
 }
 
+.band_button button {
+  width: 90px;
+  height: 35px;
+}
 button:hover {
   background-color: #e96b39;
 }
 
 .buttons {
   margin-bottom: 5em;
+}
+
+.fav_btn {
+  background-color: initial;
+  border: none;
+  cursor: pointer;
+  max-height: 23px;
+  padding: 0;
+}
+
+.fav_btn:hover {
+  background-color: initial;
 }

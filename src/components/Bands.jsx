@@ -5,13 +5,19 @@ import blueScene from "../img/blue_flower.svg";
 import pinkScene from "../img/pink_flower.svg";
 import yellowScene from "../img/yellow_flower.svg";
 import spotifyImg from "../img/spotify.svg";
-import favouriteImg from "../img/favourite.svg";
+import Button from "./Favouritebutton";
+
 // Definér din funktionelle komponent "Index".
 function Bands() {
   // Opret to state-variabler, "data" og "times", ved hjælp af useState-hooket.
   const [data, setData] = useState([]);
   const [times, setTimes] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
+  const [favourites, setFavourites] = useState(() => {
+    const saved = JSON.parse(localStorage.getItem("favourites"));
+    return saved || [];
+  });
+  const [isFavClicked, setIsFavClicked] = useState(false);
 
   // Funktion til at håndtere klik på ugedagsknapper.
   function handleClick(day) {
@@ -59,16 +65,45 @@ function Bands() {
       return "";
     }
   }
+
+  function handleFavourite({ id, html }) {
+    const favouriteExists = favourites.some((favourite) => favourite.id === id);
+
+    if (favouriteExists) {
+      const filteredFavourites = favourites.filter((favourite) => favourite.id !== id);
+      setFavourites(filteredFavourites);
+    } else {
+      setFavourites((prevFavourites) => [...prevFavourites, { id, html }]);
+    }
+  }
+
+  function showFavourite() {
+    return favourites.map((favourite, index) => {
+      return (
+        <div key={index}>
+          <div dangerouslySetInnerHTML={{ __html: favourite.html }} />
+        </div>
+      );
+    });
+  }
+
   // Anvend useEffect-hooket til at køre "bandsFetch" ved komponentens montage.
   useEffect(() => {
     bandsFetch();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+  }, [favourites]);
 
   // Render komponentens indhold.
   return (
     <main>
       {/* Sektion med ugedagsknapper */}
       <section className="buttons">
+        <a href="/program">
+          <button>All Bands</button>
+        </a>
         <button onClick={() => handleClick("mon")}>Mon</button>
         <button onClick={() => handleClick("tue")}>Tue</button>
         <button onClick={() => handleClick("wed")}>Wed</button>
@@ -76,12 +111,21 @@ function Bands() {
         <button onClick={() => handleClick("fri")}>Fri</button>
         <button onClick={() => handleClick("sat")}>Sat</button>
         <button onClick={() => handleClick("sun")}>Sun</button>
+        <button
+          onClick={() => {
+            setIsFavClicked(!isFavClicked);
+          }}
+        >
+          Favourites
+        </button>
       </section>
 
       {/* Sektion med band-information */}
       <section className="bands">
         {/* Map over hentede band-data og generér artikler for hvert band */}
-        {isClicked
+        {isFavClicked
+          ? showFavourite()
+          : isClicked
           ? times.map((time, index) => {
               let imgString = imageBand(time.act);
               let sceneImgSrc;
@@ -105,8 +149,10 @@ function Bands() {
                     </section>
                     <section className="time">
                       <p>{time.start + "-" + time.end}</p>
-                      <img src={spotifyImg} alt="spotify logo" />
-                      <img src={favouriteImg} alt="favourite" />
+                      <a href="https://open.spotify.com/">
+                        <img src={spotifyImg} alt="spotify logo" />
+                      </a>
+                      <Button onFavouriteClick={handleFavourite} id={index}></Button>
                     </section>
                   </article>
                 );
