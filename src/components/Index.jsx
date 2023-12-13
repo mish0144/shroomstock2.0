@@ -9,7 +9,7 @@ function Index() {
           <p>Transport yourself to the groovy era at our 70s festival, where bell-bottoms sway to the disco beats and flower power vibes rule the day!</p>
           <button>Get your ticket!</button>
           <p>
-            See the full program <a href="Program.jsx">here</a>
+            See the full program <a href="/program">here</a>
           </p>
         </section>
         <section className="img_section">

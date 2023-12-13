@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Index from "./Index.jsx";
-import Program from "./Program.jsx";
-import Booking from "./Booking.jsx";
+import Index from "./components/Index.jsx";
+import Program from "./components/Program.jsx";
+import Booking from "./components/Booking.jsx";
 
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import "./index.css";
+import "./css/style.css";
 const router = createBrowserRouter([
   {
     path: "/",
