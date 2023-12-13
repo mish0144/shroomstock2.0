@@ -5,7 +5,7 @@ function Index() {
   return (
     <>
       <nav>
-        <img src={logo} alt="logo" />
+        <img className="nav_logo" src={logo} alt="logo" />
         <h1>MENU</h1>
       </nav>
     </>

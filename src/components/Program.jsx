@@ -1,5 +1,6 @@
 import Bands from "./Bands";
 import Nav from "./Nav";
+import Footer from "./Footer";
 import "../css/program.css";
 import "../css/style.css";
 import blueScene from "../img/blue_flower.svg";
@@ -26,6 +27,7 @@ function Index() {
         </section>
         <Bands></Bands>
       </main>
+      <Footer></Footer>
     </div>
   );
 }

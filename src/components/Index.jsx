@@ -1,4 +1,5 @@
 import Nav from "./Nav";
+import Footer from "./Footer";
 function Index() {
   return (
     <div>
@@ -20,6 +21,7 @@ function Index() {
           </section>
         </div>
       </main>
+      <Footer></Footer>
     </div>
   );
 }

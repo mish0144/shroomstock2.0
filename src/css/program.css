@@ -4,11 +4,13 @@
   font-family: "Spicy Rice", serif;
   color: #ee5920;
   font-size: 20px;
+  margin-bottom: 2em;
 }
 
 .program_h1 {
   font-family: "Spicy Rice", serif;
   color: #ee5920;
+  font-size: var(--h2_desktop);
 }
 
 .scene_colors {

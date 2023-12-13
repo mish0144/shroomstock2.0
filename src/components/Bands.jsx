@@ -21,6 +21,7 @@ function Bands() {
 
   // Funktion til at håndtere klik på ugedagsknapper.
   function handleClick(day) {
+    setIsFavClicked(false);
     setTimes([]);
     setIsClicked(true);
     // Hent data fra "http://localhost:8080/schedule" via en GET-anmodning.

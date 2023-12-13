@@ -1,0 +1,13 @@
+.footer_logos {
+  display: flex;
+  gap: 1em;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  margin-inline: auto;
+  justify-content: space-between;
+  max-width: 1200px;
+}

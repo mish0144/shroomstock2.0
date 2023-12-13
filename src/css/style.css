@@ -3,12 +3,18 @@
   margin: 0;
   padding: 0;
 }
+
+.nav_logo {
+  max-width: 150px;
+}
+
 nav {
   max-width: 1200px;
   margin-inline: auto;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  font-size: var(--h1_desktop);
+  font-size: var(--h2_desktop);
 }
 
 body {

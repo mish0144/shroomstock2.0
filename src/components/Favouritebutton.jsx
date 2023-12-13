@@ -20,7 +20,7 @@ function Button({ id, onFavouriteClick }) {
 
 Button.propTypes = {
   onFavouriteClick: PropTypes.func.isRequired,
-  id: Number,
+  id: PropTypes.number.isRequired,
 };
 
 export default Button;
