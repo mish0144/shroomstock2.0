@@ -3,3 +3,33 @@
   margin: 0;
   padding: 0;
 }
+
+main {
+  background: rgb(234, 150, 73);
+  background: linear-gradient(0deg, rgba(234, 150, 73, 1) 10%, rgba(249, 209, 163, 1) 100%);
+}
+
+html {
+  --h1_desktop: 5.61rem;
+  --h2_desktop: 4.209rem;
+  --p_desktop: 1rem;
+
+  --offwhite: #fff4e7;
+  --cream: #f9d1a3;
+  --orange: #ee5920;
+  --black: black;
+}
+
+h1 {
+  color: var(--orange);
+  font-family: "Spicy Rice", serif;
+}
+
+h2 {
+  color: var(--offwhite);
+  font-family: "Spicy Rice", serif;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+}

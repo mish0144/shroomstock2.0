@@ -1,11 +1,14 @@
 import Bands from "./Bands";
+import Nav from "./Nav";
 import "../css/program.css";
+import "../css/style.css";
 import blueScene from "../img/blue_flower.svg";
 import pinkScene from "../img/pink_flower.svg";
 import yellowScene from "../img/yellow_flower.svg";
 function Index() {
   return (
     <main>
+      <Nav></Nav>
       <h1 className="program_h1">Program</h1>
       <section className="scene_colors">
         <div className="tooltip">
