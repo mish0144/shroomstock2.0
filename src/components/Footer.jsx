@@ -1,5 +1,3 @@
-import "../css/style.css";
-import "../css/footer.css";
 import insta from "../img/instagram.svg";
 import face from "../img/facebook.svg";
 

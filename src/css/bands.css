@@ -60,6 +60,7 @@ main {
 .buttons button {
   background-color: #ee5920;
   color: #f9d1a3;
+  margin: 0.5em;
   font-size: 15px;
   font-family: "Poppins", sans-serif;
   border-radius: 10px;

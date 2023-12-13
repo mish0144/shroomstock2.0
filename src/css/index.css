@@ -1,0 +1,33 @@
+.main_con {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.festival_con {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+}
+
+.festival_intro h1 {
+  font-size: 7em;
+}
+
+.img_section {
+  margin-top: 7.6em;
+  margin-left: -25em;
+}
+
+.ticket_button {
+  font-size: 2em;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  background-color: var(--orange);
+  color: var(--cream);
+  padding: 0.2em;
+  border-radius: 15px;
+  font-family: "Poppins", sans-serif;
+}
+footer {
+  margin-top: -2.5em;
+}
