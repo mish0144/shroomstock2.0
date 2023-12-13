@@ -8,7 +8,7 @@ function TypeStepContent({setVipTickets, setRegularTickets}) {
   return (
     <div>
       <div>
-        <p>Choose tickets</p>
+        <h2>Choose tickets</h2>
         <TicketsForm setRegularTickets={setRegularTickets} setVipTickets={setVipTickets} />
       </div>
     </div>
