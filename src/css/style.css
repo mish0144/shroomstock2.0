@@ -3,8 +3,15 @@
   margin: 0;
   padding: 0;
 }
+nav {
+  max-width: 1200px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--h1_desktop);
+}
 
-main {
+body {
   background: rgb(234, 150, 73);
   background: linear-gradient(0deg, rgba(234, 150, 73, 1) 10%, rgba(249, 209, 163, 1) 100%);
 }

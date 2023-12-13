@@ -6,7 +6,7 @@ function Index() {
     <>
       <nav>
         <img src={logo} alt="logo" />
-        <button>MENU</button>
+        <h1>MENU</h1>
       </nav>
     </>
   );
