@@ -1,9 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Index from "./components/Index.jsx";
-import Program from "./components/Program.jsx";
-import Booking from "./components/Booking.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Index from "./Index.jsx";
+import Program from "./Program.jsx";
+import Booking from "./Booking.jsx";
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import "./index.css";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,12 +19,13 @@ const router = createBrowserRouter([
     element: <Program />,
   },
   {
-    path: "/booking",
+    path: "/booking",    
     element: <Booking />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    
   </React.StrictMode>
 );
