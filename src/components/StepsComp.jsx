@@ -35,21 +35,9 @@ const reserve = (selectedArea, regularTicketCount,vipTicketCount, setReservation
         }))
 }
 
-const PAYMENT_STEP_NO = 5
-
-function isBillingInfoValid(billingInfo){
-    if(!billingInfo.firstname || !billingInfo.lastname || !billingInfo.address || !billingInfo.zipcode || !billingInfo.city || !billingInfo.phone){
-        return false
-    }
-    if(billingInfo.email !== billingInfo.repeat){
-        return false
-    }
-    return true 
-}
-
-function isTermsValid(terms){
-    const areTermsConfirmed = !terms
-    if(areTermsConfirmed.true){
+function isAreaValid(selectedArea){
+    const isSelectedAreaEmpty = !selectedArea
+    if(isSelectedAreaEmpty){
         return false
     }
     return true 
@@ -65,12 +53,39 @@ function isNameInfoValid(nameObject, vipTicketCount, regularTicketCount){
     return true
 }
 
-function isAreaValid(selectedArea){
-    const isSelectedAreaEmpty = !selectedArea
-    if(isSelectedAreaEmpty){
+
+const PAYMENT_STEP_NO = 5
+
+function isBillingInfoValid(billingInfo){
+    if(!billingInfo.firstname || !billingInfo.lastname || !billingInfo.address || !billingInfo.zipcode || !billingInfo.city || !billingInfo.phone){
+        return false
+    }
+    if(billingInfo.email !== billingInfo.repeat){
         return false
     }
     return true 
+}
+
+
+function isPaymentInfoValid(paymentInfo, paymentChoice, terms){
+    if(paymentChoice === "creditcards") {
+        if(!paymentInfo.cartholdername || !paymentInfo.cartnumber || !paymentInfo.expdate || !paymentInfo.cvc){
+        return false
+        }
+        if(!terms){
+            return false
+        }
+        return true 
+        }
+    else {
+        if(!paymentInfo.phone){
+        return false
+        }
+        if(!terms){
+            return false
+        }
+        return true 
+    }
 }
 
 
@@ -131,7 +146,7 @@ const StepsTab = () => {
     let isValid = true
     if(currentStep === PAYMENT_STEP_NO){
         isValid = isBillingInfoValid(billingInfo)
-        isValid = isTermsValid(confirmedTerms)
+        isValid = isPaymentInfoValid(paymentInfo, paymentChoice, confirmedTerms)
     } else if(currentStep === 4){
         isValid = isNameInfoValid(nameList, vipTicketCount, regularTicketCount)
     }
@@ -140,7 +155,7 @@ const StepsTab = () => {
     }
     setStepIsValid(isValid)
 
-  }, [billingInfo, currentStep, nameList, paymentInfo, selectedArea, vipTicketCount, regularTicketCount, confirmedTerms])
+  }, [billingInfo, currentStep, nameList, paymentInfo, paymentChoice, selectedArea, vipTicketCount, regularTicketCount, confirmedTerms])
 
   const paymentInfoConverter = (property, value) => {
     setPaymentInfo({
