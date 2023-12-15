@@ -53,6 +53,7 @@ h1 {
   color: var(--orange);
   font-family: "Spicy Rice", serif;
   padding-bottom: 0.5rem;
+  font-size: var(--h1_desktop);
 }
 
 h2 {

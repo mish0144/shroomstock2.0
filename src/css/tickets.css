@@ -1,20 +1,20 @@
 .grid_tickets {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
-label {
+.tickets_regular_label, .tickets_vip_label {
     color: var(--offwhite);
     text-align: center;
 }
 
-input {
+.tickets_regular_input, .tickets_vip_input {
     margin: auto;
     display: block;
     padding-left: 1.7rem;
     border-radius: 0.5rem;
     border: 1px solid var(--black);
+    margin-top: 2rem;
 }
 
 input:focus {
@@ -23,20 +23,43 @@ input:focus {
 
 .tickets_regular {
     background-image: url(../img/star1.svg);
-    background-size: cover;
+    background-size: contain;
+    min-height: 460px;
+    background-repeat: no-repeat;
 }
 
 .tickets_vip {
     background-image: url(../img/star2.svg);
-    background-size: cover;
+    background-size: contain;
+    min-height: 460px;
+    background-repeat: no-repeat;
 }
 
 
 h3 {
     color: var(--offwhite);
     -webkit-text-stroke: 0.01px var(--black);
+    padding-top: 80px;
 }
 
 h4 {
     color: var(--offwhite);
 }
+
+
+@media (min-width: 600px) {
+    .grid_tickets {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
+
+    h3 {
+    color: var(--offwhite);
+    -webkit-text-stroke: 0.01px var(--black);
+    padding-top: 115px;
+}
+
+  }
