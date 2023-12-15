@@ -22,9 +22,9 @@ function Index() {
           <img className="scene_color" src={blueScene} alt="scene colors" />
         </section>
         <section className="scenes">
-          <h2>Pink Scene</h2>
-          <h2>Yellow Scene</h2>
-          <h2>Blue Scene</h2>
+          <h3>Pink Scene</h3>
+          <h3>Yellow Scene</h3>
+          <h3>Blue Scene</h3>
         </section>
         <Bands></Bands>
       </main>
