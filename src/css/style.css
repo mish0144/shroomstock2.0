@@ -109,12 +109,7 @@ label {
   }
 
   nav {
-    max-width: 1200px;
     padding: 0.2em;
-    margin-inline: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: var(--h3_desktop);
+    font-size: var(--h4_desktop);
   }
 }
