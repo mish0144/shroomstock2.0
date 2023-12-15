@@ -14,7 +14,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: var(--h2_desktop);
+  font-size: var(--h3_desktop);
 }
 .footer_logos {
   display: flex;
