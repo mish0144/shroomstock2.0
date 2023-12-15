@@ -2,6 +2,7 @@ import StepsComp from "./StepsComp.jsx"
 import Nav from "./Nav.jsx"
 import Footer from "./Footer.jsx"
 import "../css/style.css";
+import "../css/booking.css";
 
 function Booking() {
   return (
