@@ -37,7 +37,7 @@ input:focus {
 }
 
 
-h3 {
+.tickets_vip_h3, .tickets_regular_h3 {
     color: var(--offwhite);
     -webkit-text-stroke: 0.01px var(--black);
     padding-top: 80px;
@@ -57,7 +57,7 @@ h4 {
         margin-right: 0rem;
     }
 
-    h3 {
+    .tickets_vip_h3, .tickets_regular_h3 {
     padding-top: 115px;
 }
 
