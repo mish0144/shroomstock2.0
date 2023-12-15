@@ -49,3 +49,22 @@
   visibility: visible;
   opacity: 1;
 }
+
+@media screen and (max-width: 428px) {
+  .scenes {
+    gap: 2em;
+    font-size: 13px;
+  }
+
+  .scene_colors {
+    width: 400px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .tooltip .tooltiptext {
+    display: none;
+  }
+  .program_h1 {
+    font-size: var(--h3_desktop);
+  }
+}
