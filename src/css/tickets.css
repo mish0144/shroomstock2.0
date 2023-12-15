@@ -1,6 +1,7 @@
 .grid_tickets {
     margin-left: 1rem;
     margin-right: 1rem;
+    margin-bottom: 2rem;
 }
 
 .tickets_regular_label, .tickets_vip_label {
