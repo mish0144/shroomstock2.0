@@ -97,7 +97,24 @@ p {
   padding-bottom: 0.5rem;
 }
 
-input, label {
+input,
+label {
   font-size: var(--p_desktop);
   font-family: "Poppins", sans-serif;
+}
+
+@media screen and (max-width: 428px) {
+  .nav_logo {
+    max-width: 100px;
+  }
+
+  nav {
+    max-width: 1200px;
+    padding: 0.2em;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--h3_desktop);
+  }
 }
