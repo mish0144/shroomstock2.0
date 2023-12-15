@@ -1,15 +1,14 @@
-// import "./style.css";
-
 import PropTypes from 'prop-types';
+import "../css/green.css";
+import "../css/style.css";
+
 
 function GreenForm({setGreen, green}) {
 
   return (
-    <form className="grid-container">
-       <div>
+    <form className="greenform">
             <label htmlFor="greenCompingChoice">Yes please!</label>
             <input type="checkbox" id="greenCompingChoice" name="greenCompingChoice" checked={green} onChange={() => setGreen(!green)}></input>
-        </div>
     </form>
 
   );
