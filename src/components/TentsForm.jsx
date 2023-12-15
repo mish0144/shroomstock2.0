@@ -1,4 +1,5 @@
-// import "./style.css";
+import "../css/style.css";
+import "../css/tents.css";
 
 import PropTypes from 'prop-types';
 

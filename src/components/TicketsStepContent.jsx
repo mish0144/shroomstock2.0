@@ -1,4 +1,5 @@
 import "../css/style.css";
+import "../css/ticketscontent.css";
 import TicketsForm from "./TicketsForm";
 import PropTypes from 'prop-types'
 

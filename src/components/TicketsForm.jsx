@@ -9,12 +9,12 @@ function TypeForm({setVipTickets, setRegularTickets}) {
   return (
     <form className="grid_tickets">
     <div className="tickets_regular">
-         <label htmlFor="quantityRegular"><h3>Regular</h3> <h4>799,-</h4> <p>pr. ticket</p></label>
-         <input type="number" id="quantityRegular" name="quantityRegular" min="0" max="10" onChange={event => setRegularTickets(parseInt(event.target.value))} required></input>
+         <label className="tickets_regular_label" htmlFor="quantityRegular"><h3>Regular</h3> <h4>799,-</h4> <p>pr. ticket</p></label>
+         <input className="tickets_regular_input"type="number" id="quantityRegular" name="quantityRegular" min="0" max="10" onChange={event => setRegularTickets(parseInt(event.target.value))} required></input>
      </div>
        <div className="tickets_vip">
-            <label htmlFor="quantityVip"><h3>VIP</h3> <h4>1.299,-</h4> <p>pr. ticket</p></label>
-            <input type="number" id="quantityVip" name="quantityVip" min="0" max="10" onChange={event => setVipTickets(parseInt(event.target.value))} required></input>
+            <label className="tickets_vip_label" htmlFor="quantityVip"><h3>VIP</h3> <h4>1.299,-</h4> <p>pr. ticket</p></label>
+            <input className="tickets_vip_input" type="number" id="quantityVip" name="quantityVip" min="0" max="10" onChange={event => setVipTickets(parseInt(event.target.value))} required></input>
         </div>
     </form>
   );
