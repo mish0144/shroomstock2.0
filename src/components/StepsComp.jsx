@@ -7,6 +7,8 @@ import TentsStepContent from "./TentsStepContent";
 import InfoStepContent from "./InfoStepContent";
 import PropTypes from 'prop-types'
 import PaymentStepContent from "./PaymentStepContent";
+import "../css/style.css";
+import "../css/steps.css";
 // import ConfirmationStepContent from "./ConfirmationStepContent";
 
 const customDot = (_, { status }) => (
@@ -248,7 +250,7 @@ const StepsTab = () => {
           Back
         </Button>}
         
-        { currentStep === 0 && <Button disabled={!stepIsValid} type="primary" onClick={handleNextStep}>
+        { currentStep === 0 && <Button className="buynow_button" disabled={!stepIsValid} type="primary" onClick={handleNextStep}>
           Buy now
         </Button>
         }

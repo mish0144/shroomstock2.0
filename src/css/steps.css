@@ -1,0 +1,12 @@
+.buynow_button {
+    background-color: var(--orange);
+    margin: auto;
+    display: block;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    padding-right: 1rem;
+    font-size: var(--h6_desktop);
+    border-radius: 10px;
+
+}

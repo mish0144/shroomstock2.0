@@ -1,4 +1,5 @@
-// import "./titles.css";
+import "../css/areascontent.css";
+import "../css/style.css";
 import AreaForm from "./AreaForm";
 import PropTypes from 'prop-types'
 
@@ -7,7 +8,7 @@ function AreaStepContent({setArea, ticketsWanted}) {
   return (
     <div>
       <div>
-        <h2>Choose area</h2>
+        <h2 className="areas_content_h2">Choose area</h2>
         <AreaForm setArea={setArea} ticketsWanted={ticketsWanted}/>
       </div>
     </div>

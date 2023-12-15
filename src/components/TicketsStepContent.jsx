@@ -1,7 +1,7 @@
-import "../css/style.css";
-import "../css/ticketscontent.css";
 import TicketsForm from "./TicketsForm";
 import PropTypes from 'prop-types'
+import "../css/tickets.css";
+import "../css/style.css";
 
 function TypeStepContent({setVipTickets, setRegularTickets}) {
     console.log(setVipTickets)

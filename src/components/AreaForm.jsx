@@ -1,7 +1,7 @@
-import "../css/style.css";
-import "../css/areas.css";
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import "../css/areas.css";
+import "../css/style.css";
 
 const loadList = async (setAvailableAreas, setIsLoading) => {
   const response = await fetch("http://localhost:8080/available-spots")
@@ -24,8 +24,9 @@ function AreaForm({setArea, ticketsWanted}) {
       {
         !isLoading && <form key="form-ready" className="grid_area">
         { availableAreas.map((area, index) => (<>
-          <div><label className="area_label" htmlFor={`area-${index}`} key={area.id}>{ area.area }</label>
-            <input disabled={area.available < ticketsWanted} key={area.id} type="radio" id={`area-${index}`} onChange={event => setArea(event.target.value)} name="area" value={area.area} required/>
+          <div className="selecetor">
+            <label className="area_label" htmlFor={`area-${index}`} key={area.id}><h5 className="areas_h5">{ area.area }</h5></label>
+            <input className="area_input" disabled={area.available < ticketsWanted} key={area.id} type="radio" id={`area-${index}`} onChange={event => setArea(event.target.value)} name="area" value={area.area} required/>
             </div>
         </>))
         }
