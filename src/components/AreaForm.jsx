@@ -22,11 +22,11 @@ function AreaForm({setArea, ticketsWanted}) {
     <>
       { isLoading && <div key="form-loading">Loading</div> }
       {
-        !isLoading && <form key="form-ready" className="grid-container" style={{display: 'flex', flexDirection: 'column'}}>
+        !isLoading && <form key="form-ready" className="grid_area">
         { availableAreas.map((area, index) => (<>
-          <label htmlFor={`area-${index}`} key={area.id}>{ area.area }
+          <div><label className="area_label" htmlFor={`area-${index}`} key={area.id}>{ area.area }</label>
             <input disabled={area.available < ticketsWanted} key={area.id} type="radio" id={`area-${index}`} onChange={event => setArea(event.target.value)} name="area" value={area.area} required/>
-          </label>
+            </div>
         </>))
         }
         </form>

@@ -1,0 +1,19 @@
+.grid_area {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+@media (min-width: 600px) {
+    .grid_area {
+        flex-direction: row;
+    }
+
+    h3 {
+    color: var(--offwhite);
+    -webkit-text-stroke: 0.01px var(--black);
+    padding-top: 115px;
+}
+
+  }
