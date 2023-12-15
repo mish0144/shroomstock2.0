@@ -68,4 +68,9 @@
   .program_h1 {
     font-size: 40px;
   }
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

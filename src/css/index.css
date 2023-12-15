@@ -12,11 +12,14 @@
 .festival_intro h1 {
   font-size: 7em;
 }
-
+.festival_intro {
+  position: relative;
+  left: 20%;
+}
 .img_section {
   margin-top: 7.6em;
   position: relative;
-  right: 40%;
+  right: 10%;
 }
 
 .ticket_button {
@@ -28,4 +31,63 @@
   padding: 0.2em;
   border-radius: 15px;
   font-family: "Poppins", sans-serif;
+}
+
+.footer_index {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.program_link {
+  color: black;
+}
+@media screen and (max-width: 428px) {
+  .img_section img {
+    max-width: 400px;
+  }
+  .img_section {
+    right: 0;
+    margin-top: 0;
+  }
+  .festival_con {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+  }
+
+  .festival_intro h1 {
+    font-size: 5em;
+  }
+  .festival_intro h2 {
+    font-size: 3em;
+  }
+
+  .festival_intro h3 {
+    font-size: 2em;
+  }
+
+  .festival_intro p {
+    text-align: center;
+  }
+
+  .festival_intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 0;
+  }
+  .ticket_button {
+    font-size: 1.5em;
+    margin-top: 1.5em;
+  }
+
+  .main_con {
+    height: auto;
+  }
+  .footer_index {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }

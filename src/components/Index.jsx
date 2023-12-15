@@ -1,7 +1,8 @@
 import Nav from "./Nav";
 import Footer from "./Footer";
-import "../css/index.css";
 import "../css/style.css";
+import "../css/index.css";
+import { Link } from "react-router-dom";
 function Index() {
   return (
     <div className="main_con">
@@ -13,9 +14,14 @@ function Index() {
             <h1>FESTIVAL</h1>
             <h3>17-23 / June / 2024</h3>
             <p>Transport yourself to the groovy era at our 70s festival, where bell-bottoms sway to the disco beats and flower power vibes rule the day!</p>
-            <button className="ticket_button">Get your ticket!</button>
+            <Link to="/booking">
+              <button className="ticket_button">Get your ticket!</button>
+            </Link>
             <p>
-              See the full program <a href="/program">here</a>
+              See the full program{" "}
+              <Link className="program_link" to="/program">
+                here
+              </Link>
             </p>
           </section>
           <section className="img_section">
@@ -23,7 +29,7 @@ function Index() {
           </section>
         </div>
       </main>
-      <Footer></Footer>
+      <Footer customClass={"footer_index"}></Footer>
     </div>
   );
 }

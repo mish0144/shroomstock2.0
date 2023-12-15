@@ -6,6 +6,7 @@ import pinkScene from "../img/pink_flower.svg";
 import yellowScene from "../img/yellow_flower.svg";
 import spotifyImg from "../img/spotify.svg";
 import Button from "./Favouritebutton";
+import { Link } from "react-router-dom";
 
 // Definér din funktionelle komponent "Index".
 function Bands() {
@@ -102,9 +103,9 @@ function Bands() {
     <main>
       {/* Sektion med ugedagsknapper */}
       <section className="buttons">
-        <a href="/program">
+        <Link to="/program">
           <button>All Bands</button>
-        </a>
+        </Link>
         <button onClick={() => handleClick("mon")}>Mon</button>
         <button onClick={() => handleClick("tue")}>Tue</button>
         <button onClick={() => handleClick("wed")}>Wed</button>
@@ -150,7 +151,7 @@ function Bands() {
                     </section>
                     <section className="time">
                       <p>{time.start + "-" + time.end}</p>
-                      <a href="https://open.spotify.com/">
+                      <a target="_blank" href="https://open.spotify.com/" rel="noreferrer">
                         <img src={spotifyImg} alt="spotify logo" />
                       </a>
                       <Button onFavouriteClick={handleFavourite} id={index}></Button>

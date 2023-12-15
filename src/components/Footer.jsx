@@ -1,9 +1,9 @@
 import insta from "../img/instagram.svg";
 import face from "../img/facebook.svg";
 
-function Index() {
+function Index({ customClass }) {
   return (
-    <section className="footer_box">
+    <section className={"footer_box" + " " + customClass}>
       <footer>
         <p>Contact us</p>
         <section className="footer_logos">

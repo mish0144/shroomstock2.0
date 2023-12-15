@@ -4,8 +4,8 @@ import Footer from "./Footer";
 import blueScene from "../img/blue_flower.svg";
 import pinkScene from "../img/pink_flower.svg";
 import yellowScene from "../img/yellow_flower.svg";
-import "../css/program.css";
 import "../css/style.css";
+import "../css/program.css";
 
 function Index() {
   return (
