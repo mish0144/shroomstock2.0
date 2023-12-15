@@ -21,6 +21,11 @@ nav {
   gap: 1em;
 }
 
+.footer_box {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 footer {
   display: flex;
   margin-inline: auto;
@@ -108,8 +113,12 @@ label {
     max-width: 100px;
   }
 
-  nav {
+  nav h2 {
     padding: 0.2em;
-    font-size: var(--h4_desktop);
+    font-size: var(--h3_desktop);
+  }
+  .footer_box {
+    padding: 1em;
+    margin-bottom: 0.1em;
   }
 }

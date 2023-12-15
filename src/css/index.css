@@ -15,7 +15,8 @@
 
 .img_section {
   margin-top: 7.6em;
-  margin-left: -25em;
+  position: relative;
+  right: 40%;
 }
 
 .ticket_button {
@@ -27,7 +28,4 @@
   padding: 0.2em;
   border-radius: 15px;
   font-family: "Poppins", sans-serif;
-}
-footer {
-  margin-top: -2.5em;
 }

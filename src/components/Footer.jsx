@@ -3,7 +3,7 @@ import face from "../img/facebook.svg";
 
 function Index() {
   return (
-    <>
+    <section className="footer_box">
       <footer>
         <p>Contact us</p>
         <section className="footer_logos">
@@ -11,7 +11,7 @@ function Index() {
           <img src={face} alt="Facebook logo" />
         </section>
       </footer>
-    </>
+    </section>
   );
 }
 
