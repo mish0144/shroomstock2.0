@@ -1,4 +1,5 @@
 import StepsComp from "./StepsComp.jsx"
+import "../css/style.css";
 
 function Booking() {
   return (

@@ -1,0 +1,12 @@
+main {
+    margin-inline: auto;
+    max-width: 1200px;
+}
+
+.grid_purchase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+}

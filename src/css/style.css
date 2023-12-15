@@ -31,12 +31,16 @@ footer {
 body {
   background: rgb(234, 150, 73);
   background: linear-gradient(0deg, rgba(234, 150, 73, 1) 10%, rgba(249, 209, 163, 1) 100%);
+  min-height: 100vh;
 }
 
 html {
   --h1_desktop: 5.61rem;
   --h2_desktop: 4.209rem;
   --h3_desktop: 3.157rem;
+  --h4_desktop: 2.369rem;
+  --h5_desktop: 1.777rem;
+  --h6_desktop: 1.333rem;
   --p_desktop: 1rem;
 
   --offwhite: #fff4e7;
@@ -48,21 +52,51 @@ html {
 h1 {
   color: var(--orange);
   font-family: "Spicy Rice", serif;
+  padding-bottom: 0.5rem;
 }
 
 h2 {
   font-size: var(--h2_desktop);
   color: var(--orange);
   font-family: "Spicy Rice", serif;
+  padding-bottom: 0.5rem;
 }
 
 h3 {
   color: var(--orange);
   font-size: var(--h3_desktop);
   font-family: "Spicy Rice", serif;
+  padding-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: var(--h4_desktop);
+  font-family: "Poppins", sans-serif;
+  color: var(--black);
+  padding-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: var(--h5_desktop);
+  font-family: "Poppins", sans-serif;
+  color: var(--black);
+  padding-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: var(--h6_desktop);
+  font-family: "Poppins", sans-serif;
+  color: var(--black);
+  padding-bottom: 0.5rem;
 }
 
 p {
+  font-size: var(--p_desktop);
+  font-family: "Poppins", sans-serif;
+  padding-bottom: 0.5rem;
+}
+
+input, label {
   font-size: var(--p_desktop);
   font-family: "Poppins", sans-serif;
 }

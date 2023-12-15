@@ -1,17 +1,20 @@
 // import "./titles.css";
 import GreenForm from "./GreenForm";
 import PropTypes from 'prop-types'
+import "../css/purchase.css";
+import "../css/style.css";
 
 function GreenStepContent({setGreen, green}) {
   return (
-    <div>
-      <div>
+    <div className="grid_purchase">
+      <div className="">
         <h2>Green Camping</h2>
-        <p>Camping spot in certified green area.</p>
+        <h5>Camping spot in green area</h5>
         <p>Do you want to join a festival and help save the planet at the same time? Add our Green Camping option that financial compensate.</p>
-        <p>249,- pr. ticket</p>
+        <h6>249,- pr. ticket</h6>
         <GreenForm setGreen={setGreen} green={green}/>
       </div>
+      <div></div>
     </div>
   );
 }

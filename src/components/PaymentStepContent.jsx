@@ -2,12 +2,14 @@
 import BillingForm from "./BillingForm";
 import PaymentForm from "./PaymentForm";
 import PropTypes from 'prop-types'
+import "../css/purchase.css";
+import "../css/style.css";
 
 function InfoStepContent({setBillingInfo, setPaymentInfo, setPaymentChoice, paymentChoice, setTerms, terms}) {
   return (
-    <div>
+    <div className="grid_purchase">
       <div>
-        <h2>Billing information</h2>
+        <h2>Billing</h2>
         <p>Type in billing information</p>
         <BillingForm setBillingInfo={setBillingInfo} />
         <h2>Payment</h2>

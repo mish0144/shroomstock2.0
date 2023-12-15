@@ -1,16 +1,17 @@
-// import "./titles.css";
+import "../css/purchase.css";
+import "../css/style.css";
 import TentsForm from "./TentsForm";
 import PropTypes from 'prop-types'
 
 function TentsStepContent({setSmallTents, setBigTents, maxTents}) {
   return (
-    <div>
+    <div className="grid_purchase">
       <div>
         <h2>Tents</h2>
-        <p>Save time and let us fix your tent!</p>
+        <h5>Let us fix your tent!</h5>
         <p>Do you want to join a festival and help save the planet at the same time? Add our Green Camping option that financial compensate.</p>
-        <p>299,- pr. 2 person tent</p>
-        <p>399,- pr. 3 person tent</p>
+        <h6>299,- pr. 2 person tent</h6>
+        <h6>399,- pr. 3 person tent</h6>
         <TentsForm setSmallTents={setSmallTents} setBigTents={setBigTents} maxTents={maxTents} />
       </div>
     </div>
