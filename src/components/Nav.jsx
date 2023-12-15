@@ -6,7 +6,7 @@ function Index() {
     <>
       <nav>
         <img className="nav_logo" src={logo} alt="logo" />
-        <h1>MENU</h1>
+        <h2>MENU</h2>
       </nav>
     </>
   );

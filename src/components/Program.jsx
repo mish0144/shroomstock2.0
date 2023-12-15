@@ -1,11 +1,13 @@
+
 import Bands from "./Bands";
 import Nav from "./Nav";
 import Footer from "./Footer";
-import "../css/program.css";
-import "../css/style.css";
 import blueScene from "../img/blue_flower.svg";
 import pinkScene from "../img/pink_flower.svg";
 import yellowScene from "../img/yellow_flower.svg";
+import "../css/style.css";
+import "../css/program.css";
+
 function Index() {
   return (
     <div>

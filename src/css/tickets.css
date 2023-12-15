@@ -58,8 +58,6 @@ h4 {
     }
 
     h3 {
-    color: var(--offwhite);
-    -webkit-text-stroke: 0.01px var(--black);
     padding-top: 115px;
 }
 
