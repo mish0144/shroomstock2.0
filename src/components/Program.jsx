@@ -15,15 +15,15 @@ function Index() {
         <h1 className="program_h1">Program</h1>
         <section className="scene_colors">
           <div className="tooltip">
-            <span className="tooltiptext">Each color represents a scene. Check the color in the bands photo top left corner.</span>
+            <span className="tooltiptext">Each color represents a scene. Check the color in the band photos top left corner.</span>
             <img className="scene_color" src={pinkScene} alt="scene colors" />
           </div>
           <div className="tooltip">
-            <span className="tooltiptext">Each color represents a scene. Check the color in the bands photo top left corner.</span>
+            <span className="tooltiptext">Each color represents a scene. Check the color in the band photos top left corner.</span>
             <img className="scene_color" src={yellowScene} alt="scene colors" />
           </div>
           <div className="tooltip">
-            <span className="tooltiptext">Each color represents a scene. Check the color in the bands photo top left corner.</span>
+            <span className="tooltiptext">Each color represents a scene. Check the color in the band photos top left corner.</span>
             <img className="scene_color" src={blueScene} alt="scene colors" />
           </div>
         </section>
