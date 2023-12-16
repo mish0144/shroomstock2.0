@@ -10,9 +10,9 @@ function Index() {
       <main>
         <div className="festival_con">
           <section className="festival_intro">
-            <h2>SHROOMSTOCK</h2>
-            <h1>FESTIVAL</h1>
-            <h3>17-23 / June / 2024</h3>
+            <h2 className="index_h2">SHROOMSTOCK</h2>
+            <h1 className="index_h1">FESTIVAL</h1>
+            <h3 className="index_h3">17-23 / June / 2024</h3>
             <p>Transport yourself to the groovy era at our 70s festival, where bell-bottoms sway to the disco beats and flower power vibes rule the day!</p>
             <Link to="/booking">
               <button className="ticket_button">Get your ticket!</button>
