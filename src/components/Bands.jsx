@@ -103,9 +103,7 @@ function Bands() {
     <main>
       {/* Sektion med ugedagsknapper */}
       <section className="buttons">
-        <Link to="/program">
-          <button>All Bands</button>
-        </Link>
+        <button onClick={() => setIsClicked(false)}>All Bands</button>
         <button onClick={() => handleClick("mon")}>Mon</button>
         <button onClick={() => handleClick("tue")}>Tue</button>
         <button onClick={() => handleClick("wed")}>Wed</button>
