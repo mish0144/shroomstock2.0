@@ -6,7 +6,7 @@ function PaymentForm({setPaymentChoice, paymentChoice, setPaymentInfo, setTerms,
   console.log(terms)
   return (
     <div>
-      <div className='payment_methods'>
+      <form className='payment_methods'>
         <div className='payment_method1'>
         <label htmlFor="">Creditcards</label>
         <input className='payment_method_input' key="creditcards" type="radio" id="creditcards" name="payment" onChange={() => setPaymentChoice("creditcards")}></input>
@@ -15,14 +15,15 @@ function PaymentForm({setPaymentChoice, paymentChoice, setPaymentInfo, setTerms,
         <label htmlFor="">Mobilepay</label>
         <input className='payment_method_input' key="mobilepay" type="radio" id="mobilepay" name="payment" onChange={() => setPaymentChoice("mobilepay")} ></input>
         </div>
-        </div>
+        </form>
+
         {paymentChoice === 'mobilepay' &&
 
           <div className="payment_info">
           <label htmlFor="phone" key="phone">Phone</label>
           <input className="payment_info_input" type="tel" id="phone" onChange={event => setPaymentInfo("phone", event.target.value)} name="phone" required/>
           <div className='termsform'>
-          <label htmlFor="">Yes, I have read terms and conditions</label>
+          <label htmlFor="">Yes, I have read <span className='termsconditions'>terms and conditions</span></label>
           <input key="terms" type="checkbox" id="terms1" name="terms" checked={terms} onChange={() => setTerms(!terms)}></input>
           </div></div>
           }
@@ -44,7 +45,7 @@ function PaymentForm({setPaymentChoice, paymentChoice, setPaymentInfo, setTerms,
             </div>
             </div>
             <div className='termsform'>
-            <label htmlFor="">Yes, I have read terms and conditions</label>
+            <label htmlFor="">Yes, I have read <span className='termsconditions'>terms and conditions</span></label>
           <input key="terms" type="checkbox" id="terms2" name="terms" checked={terms} onChange={() => setTerms(!terms)}></input>
           </div>
           </div>}
