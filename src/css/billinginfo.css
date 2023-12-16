@@ -62,6 +62,11 @@
     background-color: var(--orange);
   }
 
+  .payment_method_input:not(:disabled):focus {
+    background-clip: content-box;
+    box-shadow: 0px 0px 10px var(--offwhite);
+  }
+
   .payment_method1, .payment_method2 {
     display: flex;
     align-items: flex-start;

@@ -151,10 +151,14 @@ function Bands() {
                     </section>
                     <section className="time">
                       <p>{time.start + "-" + time.end}</p>
-                      <a target="_blank" href="https://open.spotify.com/" rel="noreferrer">
+                        <div>
+                          <a className="spotifylink" target="_blank" href="https://open.spotify.com/" rel="noreferrer">
                         <img src={spotifyImg} alt="spotify logo" />
+                        
                       </a>
+                      
                       <Button onFavouriteClick={handleFavourite} id={index}></Button>
+                      </div>
                     </section>
                   </article>
                 );

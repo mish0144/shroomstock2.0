@@ -17,7 +17,6 @@ main {
   height: 300px;
   object-fit: cover;
   border-radius: 10px;
-  border: 1px solid black;
 }
 
 .band {
@@ -52,9 +51,14 @@ main {
 
 .time {
   display: flex;
-  align-items: center;
   font-family: "Poppins", sans-serif;
   justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 0.3rem;
+}
+
+.spotifylink {
+  margin-right: 0.7rem;
 }
 
 .buttons button {
@@ -66,7 +70,9 @@ main {
   border-radius: 10px;
   width: 90px;
   height: 35px;
+  border: none;
 }
+
 
 .band_button button {
   width: 90px;
