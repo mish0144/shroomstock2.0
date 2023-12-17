@@ -8,7 +8,7 @@ function Button({ id, onFavouriteClick }) {
 
   const handleFavourite = (event) => {
     setClicked(!clicked);
-    onFavouriteClick({ id, html: event.currentTarget.parentElement.parentElement.outerHTML });
+    onFavouriteClick({ id, html: event.currentTarget.parentElement.parentElement.parentElement.outerHTML });
   };
 
   return (
