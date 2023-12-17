@@ -2,7 +2,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import "../css/style.css";
 import "../css/index.css";
-import indeximg from "../img/festival_2";
+import indeximg from "../img/festival_2.png";
 import { Link } from "react-router-dom";
 function Index() {
   return (
