@@ -8,38 +8,43 @@ import Button from "./Favouritebutton";
 import { Link } from "react-router-dom";
 
 function Bands() {
-  const [data, setData] = useState([]);
+  // Definerer Bands komponenten
+  const [data, setData] = useState([]); // Opretter state variabler ved hjælp af useState hook
   const [times, setTimes] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
   const [favourites, setFavourites] = useState(() => {
-    const saved = JSON.parse(localStorage.getItem("favourites"));
+    const saved = JSON.parse(localStorage.getItem("favourites")); // Henter favoritter fra local storage
     return saved || [];
   });
   const [isFavClicked, setIsFavClicked] = useState(false);
 
   function handleClick(day) {
+    // Funktion til at håndtere klik på dag-knapper
     setIsFavClicked(false);
     setTimes([]);
     setIsClicked(true);
 
     fetch("https://shroomstockfestival.glitch.me/schedule", {
+      // Henter data fra API
       method: "GET",
     })
       .then(function (response) {
-        return response.json();
+        return response.json(); // Konverterer respons til JSON
       })
       .then(function (schedule) {
         schedule = Object.values(schedule);
 
         schedule.forEach((stage, index) => {
           const timesWithScene = stage[day].map((timeSlot) => ({ ...timeSlot, scene: index }));
-          setTimes((prevTimes) => [...prevTimes, ...timesWithScene]);
+          // Tilføjer scene info til hver tids-slot
+          setTimes((prevTimes) => [...prevTimes, ...timesWithScene]); // Opdaterer times state variabel
         });
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err)); // Logger eventuelle fejl
   }
 
   function bandsFetch() {
+    // Funktion til at hente bands data
     fetch("https://shroomstockfestival.glitch.me/bands", {
       method: "GET",
     })
@@ -47,11 +52,13 @@ function Bands() {
         return response.json();
       })
       .then(function (bands) {
+        // Opdaterer data state variabel med bands data
         setData(bands);
       })
       .catch((err) => console.error(err));
   }
   function imageBand(band) {
+    // Funktion til at finde et bands logo
     const foundBand = data.find((obj) => obj.name === band);
 
     if (foundBand) {
@@ -62,17 +69,21 @@ function Bands() {
   }
 
   function handleFavourite({ id, html }) {
+    // Funktion til at håndtere favoritter
     const favouriteExists = favourites.some((favourite) => favourite.id === id);
 
     if (favouriteExists) {
       const filteredFavourites = favourites.filter((favourite) => favourite.id !== id);
+      // Fjerner favorit, hvis den allerede eksisterer
       setFavourites(filteredFavourites);
     } else {
       setFavourites((prevFavourites) => [...prevFavourites, { id, html }]);
+      // Tilføjer favorit, hvis den ikke allerede eksisterer
     }
   }
 
   function showFavourite() {
+    // Funktion til at vise favoritter
     return favourites.map((favourite, index) => {
       return (
         <div key={index}>
@@ -83,14 +94,18 @@ function Bands() {
   }
 
   useEffect(() => {
+    // Bruger useEffect hook til at hente bands data ved komponentens mount
+    bandsFetch();
     bandsFetch();
   }, []);
 
   useEffect(() => {
+    // Bruger useEffect hook til at opdatere local storage når favourites state variabel ændres
     localStorage.setItem("favourites", JSON.stringify(favourites));
   }, [favourites]);
 
   return (
+    // Returnerer JSX for Bands komponenten
     <main>
       <section className="buttons">
         <button onClick={() => setIsClicked(false)}>All Bands</button>
@@ -103,7 +118,7 @@ function Bands() {
         <button onClick={() => handleClick("sun")}>Sun</button>
         <button
           onClick={() => {
-            setIsFavClicked(!isFavClicked);
+            setIsFavClicked(!isFavClicked); // Skifter tilstanden for favoritvisning
           }}
         >
           Favourites
@@ -112,21 +127,22 @@ function Bands() {
 
       <section className="bands">
         {isFavClicked
-          ? showFavourite()
+          ? showFavourite() // Viser favoritter, hvis isFavClicked er sand
           : isClicked
           ? times.map((time, index) => {
-              let imgString = imageBand(time.act);
+              // Mapper over tider, hvis isClicked er sand
+              let imgString = imageBand(time.act); // Finder bandlogoet
               let sceneImgSrc;
               if (time.scene === 0) {
-                sceneImgSrc = pinkScene;
+                sceneImgSrc = pinkScene; // Vælger scenen baseret på sceneindekset
               } else if (time.scene === 1) {
                 sceneImgSrc = yellowScene;
               } else if (time.scene === 2) {
                 sceneImgSrc = blueScene;
               }
-              imgString = imgString.startsWith("https") ? imgString : "https://shroomstockfestival.glitch.me/logos/" + imgString;
+              imgString = imgString.startsWith("https") ? imgString : "https://shroomstockfestival.glitch.me/logos/" + imgString; // Kontrollerer, om billedstien er fuld eller relativ
               if (time.act === "break") {
-                return;
+                return; // Returnerer intet, hvis det er en break
               } else {
                 return (
                   <article key={index}>
@@ -149,7 +165,8 @@ function Bands() {
                 );
               }
             })
-          : data.map((band, index) => (
+          : // Hvis isClicked er falsk, vises alle bands i stedet
+            data.map((band, index) => (
               <article key={index}>
                 <section className="band">
                   <h2>{band.name}</h2>
