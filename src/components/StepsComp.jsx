@@ -10,6 +10,11 @@ import PaymentStepContent from "./PaymentStepContent";
 import "../css/style.css";
 import "../css/steps.css";
 import ConfirmationStepContent from "./ConfirmationStepContent";
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://xkgelrazjiauqofjiphw.supabase.co'
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhrZ2VscmF6amlhdXFvZmppcGh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI4MDI3NDksImV4cCI6MjAxODM3ODc0OX0.9In6K8X4winO_EOdC_KLC0jOFXov1ImtZWTT8RU_-q4"
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 const customDot = (_, { status }) => (
     <svg width="60" height="60" viewBox="20 20 118 115" fill={status === 'wait' ? 'none' : '#EE5920'} xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +33,7 @@ const reserve = (selectedArea, regularTicketCount,vipTicketCount, setReservation
           })
     };
 
-    fetch('http://localhost:8080/reserve-spot', requestOptions)
+    fetch('https://shroomstockfestival.glitch.me/reserve-spot', requestOptions)
         .then(response => response.json())
         .then(({id, timeout}) => setReservation({
             id,
@@ -107,22 +112,29 @@ const StepsTab = () => {
   const [stepIsValid, setStepIsValid] = useState(true)
   const onFinish = async () =>
   {
-      const requestOptions = {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-              "id": reservation.id,
-              "smalltents": smallTentCount,
-              "bigtents": bigTentCount,
-              "greencamping": selectedGreenOption,
-              "names": nameList,
-              "billinginfo": billingInfo,
-              "paymentmethod": paymentChoice,
-              "paymentinfo": paymentInfo,
-            })
-      };
+    await supabase
+      .from('shroomstock_posts')
+      .insert({
+          "reservationid": reservation.id,
+          "smalltents": smallTentCount,
+          "bigtents": bigTentCount,
+          "greencamping": selectedGreenOption,
+          "names": Object.values(nameList),
+          "billinginfo": billingInfo,
+          "paymentmethod": paymentChoice,
+          "paymentinfo": paymentInfo,
+        })
   
-      await fetch('http://localhost:8080/reserve-spot', requestOptions)
+  
+      // const requestOptions = {
+      //     method: 'POST',
+      //     headers: { 
+      //       'Content-Type': 'application/json',
+      //       'apikey': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhrZ2VscmF6amlhdXFvZmppcGh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI4MDI3NDksImV4cCI6MjAxODM3ODc0OX0.9In6K8X4winO_EOdC_KLC0jOFXov1ImtZWTT8RU_-q4"},
+      //     body: JSON.stringify)
+      // };
+  
+      // await fetch('https://xkgelrazjiauqofjiphw.supabase.co/rest/v1/', requestOptions)
       setCurrentStep(currentStep + 1)
   }
 
