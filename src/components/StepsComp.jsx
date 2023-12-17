@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import TicketsStepContent from "./TicketsStepContent";
-import { Steps, Button } from "antd"; // Assuming you are using Ant Design components
+import { Steps, Button } from "antd";
 import AreaStepContent from "./AreaStepContent";
 import GreenStepContent from "./GreenStepContent";
 import TentsStepContent from "./TentsStepContent";
