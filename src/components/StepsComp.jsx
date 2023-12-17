@@ -137,13 +137,7 @@ const StepsTab = () => {
       setCurrentStep(currentStep + 1)
   }
 
-
-  const wrappedSetConfirmTerms = (value) => {
-    console.log('settingValue', value)
-    setConfirmTerms(value)
-  }
-
-//converts to list
+ //function to update state for name conversion
   const nameConverter = (key, name) => {
     setNameList({
         ...nameList,
@@ -151,7 +145,7 @@ const StepsTab = () => {
     })
   }
 
-  //converts to list
+ //function to update billing information state
   const billingInfoConverter = (property, value) => {
     setBillingInfo({
         ...billingInfo,
@@ -159,7 +153,13 @@ const StepsTab = () => {
     })
   }
 
-
+  //function to update billing information state
+  const paymentInfoConverter = (property, value) => {
+    setPaymentInfo({
+        ...paymentInfo,
+        [property]: value,
+    })
+  }
 
   useEffect(() => {
     let isValid = true
@@ -178,14 +178,6 @@ const StepsTab = () => {
     setStepIsValid(isValid)
 
   }, [billingInfo, currentStep, nameList, paymentInfo, paymentChoice, selectedArea, vipTicketCount, regularTicketCount, confirmedTerms])
-
-  //converts to list
-  const paymentInfoConverter = (property, value) => {
-    setPaymentInfo({
-        ...paymentInfo,
-        [property]: value,
-    })
-  }
 
 
   //function for back button.
@@ -210,18 +202,34 @@ const StepsTab = () => {
 
   //content of each step and relevant props for each step to have on its content component.
   const stepContent = [
-    <TicketsStepContent key={"TicketsStepContent"} setRegularTickets={setRegularTickets} setVipTickets={setVipTickets} />,
-    <AreaStepContent key={"AreaStepContent"} setArea={setSelectedArea} ticketsWanted={regularTicketCount + vipTicketCount} />,
-    <GreenStepContent key={"GreenStepContent"} setGreen={setSelectedGreenOption} green={selectedGreenOption}/>,
-    <TentsStepContent key={"TentsStepContent"} setSmallTents={setSmallTents} setBigTents={setBigTents} maxTents={regularTicketCount + vipTicketCount}/>,
-    <InfoStepContent key={"InfoStepContent"} setNameList={nameConverter} participantsTotal={regularTicketCount + vipTicketCount} />,
+    <TicketsStepContent 
+        key={"TicketsStepContent"} 
+        setRegularTickets={setRegularTickets} 
+        setVipTickets={setVipTickets} />,
+    <AreaStepContent 
+        key={"AreaStepContent"} 
+        setArea={setSelectedArea} 
+        ticketsWanted={regularTicketCount + vipTicketCount} />,
+    <GreenStepContent 
+        key={"GreenStepContent"} 
+        setGreen={setSelectedGreenOption} 
+        green={selectedGreenOption}/>,
+    <TentsStepContent 
+        key={"TentsStepContent"} 
+        setSmallTents={setSmallTents} 
+        setBigTents={setBigTents} 
+        maxTents={regularTicketCount + vipTicketCount}/>,
+    <InfoStepContent 
+        key={"InfoStepContent"} 
+        setNameList={nameConverter} 
+        participantsTotal={regularTicketCount + vipTicketCount} />,
     <PaymentStepContent
         key={"PaymentStepContent"}
         setBillingInfo={billingInfoConverter}
         setPaymentInfo={paymentInfoConverter}
         setPaymentChoice={setPaymentChoice}
         paymentChoice={paymentChoice}
-        setTerms={wrappedSetConfirmTerms}
+        setTerms={setConfirmTerms}
         terms={confirmedTerms}
     />,
     <ConfirmationStepContent key={"ConfirmationStepContent"} />,
