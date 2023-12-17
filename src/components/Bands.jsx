@@ -1,4 +1,3 @@
-// Importér useEffect og useState fra React samt den tilhørende CSS-fil.
 import { useEffect, useState } from "react";
 import "../css/bands.css";
 import blueScene from "../img/blue_flower.svg";
@@ -8,9 +7,7 @@ import spotifyImg from "../img/spotify.svg";
 import Button from "./Favouritebutton";
 import { Link } from "react-router-dom";
 
-// Definér din funktionelle komponent "Index".
 function Bands() {
-  // Opret to state-variabler, "data" og "times", ved hjælp af useState-hooket.
   const [data, setData] = useState([]);
   const [times, setTimes] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
@@ -20,12 +17,11 @@ function Bands() {
   });
   const [isFavClicked, setIsFavClicked] = useState(false);
 
-  // Funktion til at håndtere klik på ugedagsknapper.
   function handleClick(day) {
     setIsFavClicked(false);
     setTimes([]);
     setIsClicked(true);
-    // Hent data fra "http://localhost:8080/schedule" via en GET-anmodning.
+
     fetch("https://shroomstockfestival.glitch.me/schedule", {
       method: "GET",
     })
@@ -33,9 +29,8 @@ function Bands() {
         return response.json();
       })
       .then(function (schedule) {
-        // Konverter objektet "times" til et array af værdier.
         schedule = Object.values(schedule);
-        // Iterér over arrayet og opdater "times"-staten baseret på den valgte dag.
+
         schedule.forEach((stage, index) => {
           const timesWithScene = stage[day].map((timeSlot) => ({ ...timeSlot, scene: index }));
           setTimes((prevTimes) => [...prevTimes, ...timesWithScene]);
@@ -43,9 +38,8 @@ function Bands() {
       })
       .catch((err) => console.error(err));
   }
-  // Funktion til at hente band-data ved komponentens montage.
+
   function bandsFetch() {
-    // Hent data fra "http://localhost:8080/bands" via en GET-anmodning.
     fetch("https://shroomstockfestival.glitch.me/bands", {
       method: "GET",
     })
@@ -53,7 +47,6 @@ function Bands() {
         return response.json();
       })
       .then(function (bands) {
-        // Opdater "data"-staten med de hentede band-data.
         setData(bands);
       })
       .catch((err) => console.error(err));
@@ -89,7 +82,6 @@ function Bands() {
     });
   }
 
-  // Anvend useEffect-hooket til at køre "bandsFetch" ved komponentens montage.
   useEffect(() => {
     bandsFetch();
   }, []);
@@ -98,10 +90,8 @@ function Bands() {
     localStorage.setItem("favourites", JSON.stringify(favourites));
   }, [favourites]);
 
-  // Render komponentens indhold.
   return (
     <main>
-      {/* Sektion med ugedagsknapper */}
       <section className="buttons">
         <button onClick={() => setIsClicked(false)}>All Bands</button>
         <button onClick={() => handleClick("mon")}>Mon</button>
@@ -120,9 +110,7 @@ function Bands() {
         </button>
       </section>
 
-      {/* Sektion med band-information */}
       <section className="bands">
-        {/* Map over hentede band-data og generér artikler for hvert band */}
         {isFavClicked
           ? showFavourite()
           : isClicked
@@ -174,5 +162,4 @@ function Bands() {
   );
 }
 
-// Eksportér komponenten som standard.
 export default Bands;
