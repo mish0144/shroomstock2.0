@@ -221,7 +221,6 @@ const StepsTab = () => {
     />,
     <ConfirmationStepContent key={"ConfirmationStepContent"} />,
 
-    // ... other custom components
   ];
 
 

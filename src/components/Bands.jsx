@@ -5,7 +5,6 @@ import pinkScene from "../img/pink_flower.svg";
 import yellowScene from "../img/yellow_flower.svg";
 import spotifyImg from "../img/spotify.svg";
 import Button from "./Favouritebutton";
-import { Link } from "react-router-dom";
 
 function Bands() {
   const [data, setData] = useState([]);
