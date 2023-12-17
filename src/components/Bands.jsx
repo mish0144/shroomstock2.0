@@ -26,7 +26,7 @@ function Bands() {
     setTimes([]);
     setIsClicked(true);
     // Hent data fra "http://localhost:8080/schedule" via en GET-anmodning.
-    fetch("http://localhost:8080/schedule", {
+    fetch("https://shroomstockfestival.glitch.me/schedule", {
       method: "GET",
     })
       .then(function (response) {
@@ -46,7 +46,7 @@ function Bands() {
   // Funktion til at hente band-data ved komponentens montage.
   function bandsFetch() {
     // Hent data fra "http://localhost:8080/bands" via en GET-anmodning.
-    fetch("http://localhost:8080/bands", {
+    fetch("https://shroomstockfestival.glitch.me/bands", {
       method: "GET",
     })
       .then(function (response) {
@@ -136,7 +136,7 @@ function Bands() {
               } else if (time.scene === 2) {
                 sceneImgSrc = blueScene;
               }
-              imgString = imgString.startsWith("https") ? imgString : "http://localhost:8080/logos/" + imgString;
+              imgString = imgString.startsWith("https") ? imgString : "https://shroomstockfestival.glitch.me/logos/" + imgString;
               if (time.act === "break") {
                 return;
               } else {
@@ -149,13 +149,12 @@ function Bands() {
                     </section>
                     <section className="time">
                       <p>{time.start + "-" + time.end}</p>
-                        <div>
-                          <a className="spotifylink" target="_blank" href="https://open.spotify.com/" rel="noreferrer">
-                        <img src={spotifyImg} alt="spotify logo" />
-                        
-                      </a>
-                      
-                      <Button onFavouriteClick={handleFavourite} id={index}></Button>
+                      <div>
+                        <a className="spotifylink" target="_blank" href="https://open.spotify.com/" rel="noreferrer">
+                          <img src={spotifyImg} alt="spotify logo" />
+                        </a>
+
+                        <Button onFavouriteClick={handleFavourite} id={index}></Button>
                       </div>
                     </section>
                   </article>
@@ -166,7 +165,7 @@ function Bands() {
               <article key={index}>
                 <section className="band">
                   <h2>{band.name}</h2>
-                  <img className="band_img" src={band.logo.startsWith("https") ? band.logo : "http://localhost:8080/logos/" + band.logo} alt="band image" />
+                  <img className="band_img" src={band.logo.startsWith("https") ? band.logo : "https://shroomstockfestival.glitch.me/logos/" + band.logo} alt="band image" />
                 </section>
               </article>
             ))}
