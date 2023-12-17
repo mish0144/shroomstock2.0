@@ -2,6 +2,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import "../css/style.css";
 import "../css/index.css";
+import indeximg from "../img/festival_2";
 import { Link } from "react-router-dom";
 function Index() {
   return (
@@ -25,7 +26,7 @@ function Index() {
             </p>
           </section>
           <section className="img_section">
-            <img src="src/img/festival_2.png" alt="" />
+            <img src={indeximg} alt="" />
           </section>
         </div>
       </main>
