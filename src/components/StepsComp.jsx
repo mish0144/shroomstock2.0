@@ -112,7 +112,8 @@ const StepsTab = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
               "id": reservation.id,
-              "tents": smallTentCount+bigTentCount,
+              "smalltents": smallTentCount,
+              "bigtents": bigTentCount,
               "greencamping": selectedGreenOption,
               "names": nameList,
               "billinginfo": billingInfo,
