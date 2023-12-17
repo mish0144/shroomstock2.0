@@ -26,7 +26,7 @@ function Index() {
             </p>
           </section>
           <section className="img_section">
-            <img src={indeximg} alt="" />
+            <img src={indeximg} alt="Front image" />
           </section>
         </div>
       </main>
