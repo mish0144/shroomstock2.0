@@ -94,7 +94,6 @@ function isPaymentInfoValid(paymentInfo, paymentChoice, terms){
     }
 }
 
-
 const StepsTab = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [regularTicketCount, setRegularTickets] = useState(0)
@@ -125,16 +124,6 @@ const StepsTab = () => {
           "paymentinfo": paymentInfo,
         })
   
-  
-      // const requestOptions = {
-      //     method: 'POST',
-      //     headers: { 
-      //       'Content-Type': 'application/json',
-      //       'apikey': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhrZ2VscmF6amlhdXFvZmppcGh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI4MDI3NDksImV4cCI6MjAxODM3ODc0OX0.9In6K8X4winO_EOdC_KLC0jOFXov1ImtZWTT8RU_-q4"},
-      //     body: JSON.stringify)
-      // };
-  
-      // await fetch('https://xkgelrazjiauqofjiphw.supabase.co/rest/v1/', requestOptions)
       setCurrentStep(currentStep + 1)
   }
 
