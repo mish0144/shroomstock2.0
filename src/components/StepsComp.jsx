@@ -117,7 +117,7 @@ const StepsTab = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [regularTicketCount, setRegularTickets] = useState(0)
   const [vipTicketCount, setVipTickets] = useState(0)
-  const [selectedArea, setSelectedArea] = useState(0)
+  const [selectedArea, setSelectedArea] = useState(null)
   const [reservation, setReservation] = useState(null)
   const [selectedGreenOption, setSelectedGreenOption] = useState(false)
   const [smallTentCount, setSmallTents] = useState(0)
@@ -215,12 +215,9 @@ const StepsTab = () => {
     setCurrentStep(newStep);
     if(newStep == 2){
         reserve(selectedArea, regularTicketCount, vipTicketCount, setReservation, () => {
-          console.log('Call done')
-          if(currentStep < 6){
-            console.log('NOT DONE')
+          const isReservationDone = currentStep >= 6
+          if(!isReservationDone){
             setCurrentStep(0)
-          } else {
-            console.log('DONE')
           }
         })
 

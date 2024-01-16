@@ -41,7 +41,7 @@ function Basket({basketInfo: {selectedArea, regularTicketCount,vipTicketCount, s
     
   return ( 
       <div className="basket">
-        <h3>YOUR BASKET</h3>
+        <h3 style={{textTransform: 'uppercase'}}>Your basket</h3>
           <div className="basket_list"> {
             isNaN(timeRemaining.minutes) || isNaN(timeRemaining.remainingSeconds)
             ? ''
