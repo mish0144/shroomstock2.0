@@ -35,7 +35,7 @@ function Basket({basketInfo: {selectedArea, regularTicketCount,vipTicketCount, s
       setTimeRemaining(calculateTimeRemaining());
     }, 1000);
 
-    // Clear the interval when the component is unmounted
+
     return () => clearInterval(timerInterval);
   }, [calculateTimeRemaining]);
     
