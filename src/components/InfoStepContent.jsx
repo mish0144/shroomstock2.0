@@ -6,7 +6,7 @@ import "../css/purchase.css";
 import "../css/info.css"
 import "../css/style.css"
 
-function InfoStepContent({participantsTotal, setNameList}) {
+function InfoStepContent({participantsTotal, setNameList, basketInfo}) {
   return (
     <div className="grid_purchase">
       <div className="info_left">
@@ -14,7 +14,7 @@ function InfoStepContent({participantsTotal, setNameList}) {
         <h6>Type in full name of each participant.</h6>
         <InfoForm participantsTotal={participantsTotal} setNameList={setNameList} />
       </div>
-      <Basket/>
+      <Basket basketInfo={basketInfo}/>
     </div>
   );
 }
@@ -22,6 +22,7 @@ function InfoStepContent({participantsTotal, setNameList}) {
 InfoStepContent.propTypes = {
     participantsTotal: PropTypes.number,
     setNameList: PropTypes.func,
+    basketInfo: PropTypes.object,
 }
 
 export default InfoStepContent;

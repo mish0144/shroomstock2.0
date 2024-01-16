@@ -16,6 +16,12 @@
     background-color: #e96b39 !important;
 }
 
+.buynow_button:disabled {
+    color: white;
+    background-color: var(--orange);
+    border: none;
+}
+
 .next_button {
     display: block;
     align-self: right;

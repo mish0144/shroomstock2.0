@@ -6,7 +6,7 @@ import "../css/purchase.css";
 import "../css/green.css";
 import "../css/style.css";
 
-function GreenStepContent({setGreen, green}) {
+function GreenStepContent({setGreen, green, basketInfo}) {
   return (
     <div className="grid_purchase">
       <div className="greenform_content">
@@ -16,7 +16,7 @@ function GreenStepContent({setGreen, green}) {
         <h5 className="green_price">249,- pr. ticket</h5>
         <GreenForm setGreen={setGreen} green={green}/>
       </div>
-      <Basket/>
+      <Basket basketInfo={basketInfo}/>
     </div>
   );
 }
@@ -24,6 +24,7 @@ function GreenStepContent({setGreen, green}) {
 GreenStepContent.propTypes = {
     setGreen: PropTypes.func,
     green: PropTypes.bool,
+    basketInfo: PropTypes.object,
 }
 
 export default GreenStepContent;

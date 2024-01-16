@@ -6,7 +6,6 @@ import "../css/style.css";
 const loadList = async (setAvailableAreas, setIsLoading) => {
   const response = await fetch("https://shroomstockfestival.glitch.me/available-spots")
   const list = await response.json()
-  console.log(list)
   setAvailableAreas(list)
   setIsLoading(false)
 }

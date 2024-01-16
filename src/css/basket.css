@@ -8,6 +8,37 @@
     margin-top: 3rem;
 }
 
+.countdown {
+    padding-bottom: 1.5rem;
+}
+
+.item {
+    font-weight: 500;
+}
+
+.item_in_basket {
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
+    border-bottom: var(--cream) solid 0.5px;
+}
+
+.price_in_basket_list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.total_price { 
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+.basket {
+    display: flex;
+    flex-direction: column;
+}
+
 @media (min-width: 600px) {
     .basket {
         background-color: var(--offwhite);

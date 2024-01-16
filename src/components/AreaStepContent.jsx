@@ -4,7 +4,6 @@ import AreaForm from "./AreaForm";
 import PropTypes from 'prop-types'
 
 function AreaStepContent({setArea, ticketsWanted}) {
-    console.log(setArea)
   return (
     <div>
       <div>

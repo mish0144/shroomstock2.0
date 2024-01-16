@@ -2,8 +2,7 @@ import PropTypes from 'prop-types';
 import "../css/billinginfo.css";
 import "../css/style.css";
 
-function PaymentForm({setPaymentChoice, paymentChoice, setPaymentInfo, setTerms, terms}) {
-  console.log(terms)
+function PaymentForm({setPaymentChoice, paymentChoice, setPaymentInfo, setTerms, terms}) {  console.log(terms)
   return (
     <div>
       <form className='payment_methods'>

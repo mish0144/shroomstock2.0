@@ -7,7 +7,7 @@ import "../css/purchase.css";
 import "../css/billinginfo.css";
 import "../css/style.css";
 
-function InfoStepContent({setBillingInfo, setPaymentInfo, setPaymentChoice, paymentChoice, setTerms, terms}) {
+function InfoStepContent({setBillingInfo, setPaymentInfo, setPaymentChoice, paymentChoice, setTerms, terms, basketInfo}) {
   return (
     <div className="grid_purchase">
       <div className="billing_left">
@@ -18,7 +18,7 @@ function InfoStepContent({setBillingInfo, setPaymentInfo, setPaymentChoice, paym
         <h6>Choose payment method</h6>
         <PaymentForm setPaymentInfo={setPaymentInfo} setPaymentChoice={setPaymentChoice} paymentChoice={paymentChoice} setTerms={setTerms} terms={terms}/>
       </div>
-      <Basket/>
+      <Basket basketInfo={basketInfo}/>
     </div>
   );
 }
@@ -29,7 +29,8 @@ InfoStepContent.propTypes = {
     setPaymentChoice: PropTypes.func,
     paymentChoice: PropTypes.string,
     setTerms: PropTypes.func,
-    terms: PropTypes.bool
+    terms: PropTypes.bool,
+    basketInfo: PropTypes.object,
 }
 
 export default InfoStepContent;

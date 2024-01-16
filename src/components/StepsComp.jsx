@@ -26,7 +26,7 @@ const customDot = (_, { status }) => (
 );
 
 //send reservation with area and number of tickets to database on glitch and get id and timeout to later fullfill reservation
-const reserve = (selectedArea, regularTicketCount,vipTicketCount, setReservation) => {
+const reserve = (selectedArea, regularTicketCount,vipTicketCount, setReservation, startOverIfNotDone) => {
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -38,10 +38,14 @@ const reserve = (selectedArea, regularTicketCount,vipTicketCount, setReservation
 
     fetch('https://shroomstockfestival.glitch.me/reserve-spot', requestOptions)
         .then(response => response.json())
-        .then(({id, timeout}) => setReservation({
+        .then(({id, timeout}) => {
+          const reservationEndsAt = new Date(new Date().getTime() + timeout)
+          setReservation({
             id,
-            timeout,
-        }))
+            reservationEndsAt,
+          })
+          setTimeout(startOverIfNotDone, timeout)
+        })
 }
 
 //function: validation if whether or not there has been selected an area
@@ -63,6 +67,14 @@ function isNameInfoValid(nameObject, vipTicketCount, regularTicketCount){
         return false
     }
     return true
+}
+
+function isTicketInfoValid(vipTicketCount, regularTicketCount){
+
+  if(vipTicketCount == 0 && regularTicketCount == 0){
+      return false
+  }
+  return true
 }
 
 
@@ -165,40 +177,72 @@ const StepsTab = () => {
     let isValid = true
     //if the current step is the payment step (step 5) -> check if billing and payment info has been filled as well as terms accepted
     if(currentStep === PAYMENT_STEP_NO){
-        isValid = isBillingInfoValid(billingInfo)
-        isValid = isPaymentInfoValid(paymentInfo, paymentChoice, confirmedTerms)
+        isValid = isBillingInfoValid(billingInfo) && isPaymentInfoValid(paymentInfo, paymentChoice, confirmedTerms)
     //if the current step is the info step (step 4) -> check if there are names typed in for all participants
     } else if(currentStep === 4){
         isValid = isNameInfoValid(nameList, vipTicketCount, regularTicketCount)
     }
     //if the current step is the area step (step 1) -> check if there has been an area seleceted
-    else if(currentStep === 1){
+    else if(currentStep === 1){ 
         isValid = isAreaValid(selectedArea)
     }
+
+    else if(currentStep === 0){
+      isValid = isTicketInfoValid(vipTicketCount, regularTicketCount)
+  }
     setStepIsValid(isValid)
 
+
+    
   }, [billingInfo, currentStep, nameList, paymentInfo, paymentChoice, selectedArea, vipTicketCount, regularTicketCount, confirmedTerms])
 
 
   //function for back button.
   const handlePreviousStep = () => {
-    setCurrentStep(currentStep - 1);
+    const newStep = currentStep - 1
+    setCurrentStep(newStep);
+    setCurrentStep(newStep);
+    if(newStep === 1) {
+      console.log('In Step 1')
+      setReservation(null)
+    }
   };
 
 
   //function for next step button. If new step is 2 run reserve function. If new step is 6, run onFinish function.
   const handleNextStep = () => {
     const newStep = currentStep + 1
-    console.log({currentStep})
     setCurrentStep(newStep);
     if(newStep == 2){
-        reserve(selectedArea, regularTicketCount, vipTicketCount, setReservation)
+        reserve(selectedArea, regularTicketCount, vipTicketCount, setReservation, () => {
+          console.log('Call done')
+          if(currentStep < 6){
+            console.log('NOT DONE')
+            setCurrentStep(0)
+          } else {
+            console.log('DONE')
+          }
+        })
+
+    }
+    if(newStep === 1) {
+      console.log('In Step 1')
+      setReservation(null)
     }
     if(newStep == 6){
         onFinish(reservation)
     }
   };
 
+  const basketInfo = {
+  regularTicketCount,
+  vipTicketCount,
+  selectedArea,
+  selectedGreenOption,
+  smallTentCount,
+  bigTentCount,
+  reservationEndsAt: reservation?.reservationEndsAt
+  }
 
   //content of each step and relevant props for each step to have on its content component.
   const stepContent = [
@@ -213,16 +257,21 @@ const StepsTab = () => {
     <GreenStepContent 
         key={"GreenStepContent"} 
         setGreen={setSelectedGreenOption} 
-        green={selectedGreenOption}/>,
+        green={selectedGreenOption}
+        basketInfo={basketInfo}/>,
     <TentsStepContent 
         key={"TentsStepContent"} 
         setSmallTents={setSmallTents} 
-        setBigTents={setBigTents} 
-        maxTents={regularTicketCount + vipTicketCount}/>,
+        setBigTents={setBigTents}
+        bigTentCount={bigTentCount}
+        smallTentCount={smallTentCount}
+        maxTents={regularTicketCount + vipTicketCount}
+        basketInfo={basketInfo}/>,
     <InfoStepContent 
         key={"InfoStepContent"} 
         setNameList={nameConverter} 
-        participantsTotal={regularTicketCount + vipTicketCount} />,
+        participantsTotal={regularTicketCount + vipTicketCount}
+        basketInfo={basketInfo} />,
     <PaymentStepContent
         key={"PaymentStepContent"}
         setBillingInfo={billingInfoConverter}
@@ -231,6 +280,7 @@ const StepsTab = () => {
         paymentChoice={paymentChoice}
         setTerms={setConfirmTerms}
         terms={confirmedTerms}
+        basketInfo={basketInfo}
     />,
     <ConfirmationStepContent key={"ConfirmationStepContent"} />,
   ];

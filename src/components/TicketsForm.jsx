@@ -4,8 +4,6 @@ import "../css/tickets.css";
 import PropTypes from 'prop-types';
 
 function TypeForm({setVipTickets, setRegularTickets}) {
-    console.log(setVipTickets)
-    console.log(setRegularTickets)
   return (
     <form className="grid_tickets">
     <div className="tickets_regular">

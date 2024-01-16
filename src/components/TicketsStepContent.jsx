@@ -4,8 +4,6 @@ import "../css/tickets.css";
 import "../css/style.css";
 
 function TypeStepContent({setVipTickets, setRegularTickets}) {
-    console.log(setVipTickets)
-    console.log(setRegularTickets)
   return (
     <div>
       <div>
